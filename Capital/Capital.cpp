@@ -8,26 +8,26 @@ int main() {
 	count = 0;
 	scanf("%s", input);
 	l = strlen(input);
+	printf("Only Cap: ");
 	for (int i = 0;i < l;i++) {
 		if (input[i] > 64 && input[i] < 91) {
 			printf("%c", input[i]);
-			cap[j] = input[i];
+			cap[i] = input[i];
 			count++;
 			}
 		}
+	printf("\nSort: ");
+	for (int i = 0;i < l;i++) {
+		if (cap[i] > cap[i + 1]) {
+			temp = cap[i];
+			cap[i + 1] = cap[i];
+			cap[i] = temp;
+		}
 	}
-	for (int i = 0;i < count;i++) {
-		if(cap[i]>cap[i+1])
-		temp = cap[i];
-		cap[j + 1] = cap[j];
-		cap[j] = cap[j];
-		
+	for (int i = 0;i < l;i++) {
 		if (cap[i] != '\0') {
 			printf("%c", cap[i]);
 		}
-			printf("count++");
-			j++;
 	}
-
 	return 0;
 }
