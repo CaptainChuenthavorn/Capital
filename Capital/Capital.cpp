@@ -6,9 +6,10 @@ int main() {
 	int l,j, count;
 	j = 0;
 	count = 0;
+	printf("Enter word to show and sorting only Capital letter : ");
 	scanf("%[^\n]s", input);
 	l = strlen(input);
-	printf("Only Cap: ");
+	printf("\nCapital letter : ");
 	count = 0;
 		for (int i = 0;i < l;i++) {
 			if (input[i] > 64 && input[i] < 91) {
@@ -17,18 +18,17 @@ int main() {
 				count++;
 			}
 	}
-	printf("\nSort Method: ");
+
 	for (int j = 0;j < l - 1;j++) {
 		for (int i = j+1;i < l;i++) {
 			if (cap[j] > cap[i] && cap[j] != '\0' && cap[i] != '\0') {
 				temp = cap[j];
 				cap[j] = cap[i];
 				cap[i] = temp;
-				printf("%c Change with %c \n", cap[j], cap[i]);
 			}
 		}
 	}
-	printf("\n\n The Resualt after sorting is :");
+	printf("\n\n The Resualt after sorting is : ");
 	for (int i = 0;i < l;i++) {
 		if(cap[i] != '\0'&& cap[i] > 64 && cap[i] < 91) {
 			printf("%c", cap[i]);
