@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 int main() {
@@ -6,26 +6,31 @@ int main() {
 	int l,j, count;
 	j = 0;
 	count = 0;
-	scanf("%s", input);
+	scanf("%[^\n]s", input);
 	l = strlen(input);
 	printf("Only Cap: ");
-	for (int i = 0;i < l;i++) {
-		if (input[i] > 64 && input[i] < 91) {
-			printf("%c", input[i]);
-			cap[i] = input[i];
-			count++;
+	count = 0;
+		for (int i = 0;i < l;i++) {
+			if (input[i] > 64 && input[i] < 91) {
+				printf("%c", input[i]);
+				cap[count] = input[i];
+				count++;
+			}
+	}
+	printf("\nSort Method: ");
+	for (int j = 0;j < l - 1;j++) {
+		for (int i = j+1;i < l;i++) {
+			if (cap[j] > cap[i] && cap[j] != '\0' && cap[i] != '\0') {
+				temp = cap[j];
+				cap[j] = cap[i];
+				cap[i] = temp;
+				printf("%c Change with %c \n", cap[j], cap[i]);
 			}
 		}
-	printf("\nSort: ");
-	for (int i = 0;i < l;i++) {
-		if (cap[i] > cap[i + 1]) {
-			temp = cap[i];
-			cap[i + 1] = cap[i];
-			cap[i] = temp;
-		}
 	}
+	printf("\n\n The Resualt after sorting is :");
 	for (int i = 0;i < l;i++) {
-		if (cap[i] != '\0') {
+		if(cap[i] != '\0'&& cap[i] > 64 && cap[i] < 91) {
 			printf("%c", cap[i]);
 		}
 	}
